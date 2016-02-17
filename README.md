@@ -1,7 +1,7 @@
-# roscpp Code Format
+# ompl Code Format
 Why waste your valuable development time formatting code manually when we are trying to build amazing robots?
 
-The repo contains an auto formatting script for the [ROS C++ Style Guidelines](http://wiki.ros.org/CppStyleGuide).
+The repo contains an auto formatting script for the [OMPL C++ Style Guidelines](http://ompl.kavrakilab.org/styleGuide.html).
 
 > **Note: this style is in beta format, please submit suggestions or fixes!**
 
@@ -11,15 +11,15 @@ The repo contains an auto formatting script for the [ROS C++ Style Guidelines](h
 
    ``sudo apt-get install -y clang-format-3.6``
 
- * Then symlink or copy in the root of your catkin workspace the file ``.clang_format``, located in this repo. You can save this file from [this link](https://raw.githubusercontent.com/davetcoleman/roscpp_code_format/master/.clang-format). For example, place it on your computer here:
+ * Then symlink or copy in the root of your ompl directory the file ``.clang_format``, located in this repo. You can save this file from [this link](https://raw.githubusercontent.com/davetcoleman/ompl_code_format/master/.clang-format). For example, place it on your computer here:
 
-   ``~/catkin_ws/.clang_format``
+   ``~/ompl/.clang_format``
 
  * If you are interested in improving this configuration file, we recommend you checkout the git repo and symlink, e.g.:
 
-   ``ln -s ~/roscpp_code_format/.clang-format ~/catkin_ws/.clang-format``
+   ``ln -s ~/ompl_code_format/.clang-format ~/ompl/.clang-format``
 
- * Now any file inside your catkin workspace will be formatted with the ROS style guidelines described in this config file
+ * Now any file inside your catkin workspace will be formatted with the OMPL style guidelines described in this config file
 
 ## Usage
 
@@ -29,7 +29,7 @@ You can run **clang_format** in several ways:
 
 Format single file:
 
-    clang-format-3.6 --i -style=file MY_ROS_NODE.cpp
+    clang-format-3.6 --i -style=file MY_OMPL_FILE.cpp
 
 Format entire directory recursively including subfolders:
 
@@ -39,14 +39,14 @@ Format entire directory recursively including subfolders:
 
 In your ``~/.emacs`` config file, add the following:
 
-Format your source code if its in some directory such as the ``catkin_ws`` (feel free to change keywords catkin_ws):
+Format your source code if its in some directory such as the ``ompl`` (feel free to change keywords ompl):
 
 ```
-(defun run-ros-clang-format ()
-  "Runs clang-format on cpp,h files in catkin_ws/ and reverts buffer."
+(defun run-ompl-clang-format ()
+  "Runs clang-format on cpp,h files in ompl/ and reverts buffer."
   (interactive)
   (and
-   (string-match "/catkin_ws/.*\\.\\(h\\|cpp\\)$" buffer-file-name)
+   (string-match "/ompl/.*\\.\\(h\\|cpp\\)$" buffer-file-name)
    (save-some-buffers 'no-confirm)
    (shell-command (concat "clang-format-3.6 -style=file -i " buffer-file-name))
    (message (concat "Saved and ran clang-format on " buffer-file-name))
@@ -56,7 +56,7 @@ Format your source code if its in some directory such as the ``catkin_ws`` (feel
 
 Set a keyboard shortcut to run, such as F12
 
-    (global-set-key [f12] 'run-ros-clang-format)
+    (global-set-key [f12] 'run-ompl-clang-format)
 
 ### Atom Editor Configuration
 
